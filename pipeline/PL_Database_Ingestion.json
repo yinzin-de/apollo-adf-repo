@@ -252,7 +252,7 @@
 												"parameters": {
 													"container": "bronze",
 													"folder": {
-														"value": "@concat(\n    item().datasource,\n    '/', item().sinkcontainer,\n    '/', item().tablename,\n    '/',variables('start time')\n)",
+														"value": "@concat(\n    item().datasource,\n    '/', item().sinkcontainer,\n    '/',variables('start time')\n)",
 														"type": "Expression"
 													}
 												}
