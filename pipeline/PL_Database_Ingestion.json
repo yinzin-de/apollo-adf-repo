@@ -44,7 +44,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "start time",
-					"value": ""
+					"value": {
+						"value": "@formatDateTime(utcNow(),'yyyy-MM-dd_hh:mm:ss')",
+						"type": "Expression"
+					}
 				}
 			},
 			{
