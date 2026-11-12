@@ -353,7 +353,7 @@
 												},
 												"rows_written": {
 													"value": {
-														"value": "@activity('Incremental-Load').output.rowsWritten",
+														"value": "@activity('Incremental-Load').output.rowscopied",
 														"type": "Expression"
 													},
 													"type": "Int64"
