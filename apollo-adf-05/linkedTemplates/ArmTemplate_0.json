@@ -309,7 +309,7 @@
 													"source": {
 														"type": "AzureSqlSource",
 														"sqlReaderQuery": {
-															"value": "select coalesce(max(loaddate),'2000-01-01') as last_fetched_date from load_logs where data_source = '@{item().datasource}' and tablename = @{item().tablename}",
+															"value": "select coalesce(max(loaddate),'2000-01-01') as last_fetched_date from load_logs where data_source = '@{item().datasource}' and tablename = '@{item().tablename}'",
 															"type": "Expression"
 														},
 														"queryTimeout": "02:00:00",
@@ -452,7 +452,7 @@
 														"parameters": {
 															"container": "bronze",
 															"folder": {
-																"value": "@concat(\n    item().datasource,\n    '/', item().sinkcontainer,\n    '/', item().tablename,\n    '/',variables('start time')\n)",
+																"value": "@concat(\n    item().datasource,\n    '/', item().sinkcontainer,\n    '/',variables('start time')\n)",
 																"type": "Expression"
 															}
 														}
@@ -546,14 +546,14 @@
 														},
 														"rows_read": {
 															"value": {
-																"value": "@activity('Incremental-Load').output.rowsRead",
+																"value": "@activity('Incremental-Load').output.rowscopied",
 																"type": "Expression"
 															},
 															"type": "Int64"
 														},
 														"rows_written": {
 															"value": {
-																"value": "@activity('Incremental-Load').output.rowsWritten",
+																"value": "@activity('Incremental-Load').output.rowscopied",
 																"type": "Expression"
 															},
 															"type": "Int64"
@@ -710,7 +710,7 @@
 														"parameters": {
 															"container": "bronze",
 															"folder": {
-																"value": "@concat(\n    item().datasource,\n    '/', item().sinkcontainer,\n    '/', item().tablename,\n    '/',variables('start time')\n)",
+																"value": "@concat(\n    item().datasource,\n    '/', item().sinkcontainer,\n    '/',variables('start time')\n)",
 																"type": "Expression"
 															}
 														}
@@ -748,14 +748,14 @@
 														},
 														"rows_read": {
 															"value": {
-																"value": "@activity('Database to Datalake').output.rowsRead",
+																"value": "@activity('Database to Datalake').output.rowsCopied",
 																"type": "Expression"
 															},
 															"type": "Int64"
 														},
 														"rows_written": {
 															"value": {
-																"value": "@activity('Database to Datalake').output.rowsWritten",
+																"value": "@activity('Database to Datalake').output.rowsCopied",
 																"type": "Expression"
 															},
 															"type": "Int64"
