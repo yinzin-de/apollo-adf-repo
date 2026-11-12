@@ -346,7 +346,7 @@
 												},
 												"rows_read": {
 													"value": {
-														"value": "@activity('Incremental-Load').output.rowsRead",
+														"value": "@activity('Incremental-Load').output.rowscopied",
 														"type": "Expression"
 													},
 													"type": "Int64"
@@ -548,14 +548,14 @@
 												},
 												"rows_read": {
 													"value": {
-														"value": "@activity('Database to Datalake').output.rowsRead",
+														"value": "@activity('Database to Datalake').output.rowsCopied",
 														"type": "Expression"
 													},
 													"type": "Int64"
 												},
 												"rows_written": {
 													"value": {
-														"value": "@activity('Database to Datalake').output.rowsWritten",
+														"value": "@activity('Database to Datalake').output.rowsCopied",
 														"type": "Expression"
 													},
 													"type": "Int64"
