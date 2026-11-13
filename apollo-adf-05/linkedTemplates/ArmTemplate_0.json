@@ -1792,7 +1792,7 @@
 											"parameters": {
 												"container": "bronze",
 												"folder": {
-													"value": "@concat(\n    item().source,\n    '/', item().filename,\n    '/',variables('starttime')\n)",
+													"value": "@concat(\n    item().source,\n    '/',item().filename,\n    '/',variables('starttime')\n)",
 													"type": "Expression"
 												}
 											}
