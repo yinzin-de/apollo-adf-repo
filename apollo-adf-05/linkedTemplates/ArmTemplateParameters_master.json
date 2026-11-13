@@ -8,10 +8,10 @@
 		"ls_AzureSqlDatabase_password": {
 			"value": ""
 		},
-		"ls_datalake_accountKey": {
+		"ls_blobStorage_connectionString": {
 			"value": ""
 		},
-		"ls_blobStorage_connectionString": {
+		"ls_datalake_accountKey": {
 			"value": ""
 		},
 		"ls_AzureSqlDatabase_properties_typeProperties_server": {
@@ -25,6 +25,9 @@
 		},
 		"ls_datalake_properties_typeProperties_url": {
 			"value": "https://apollodatalake05.dfs.core.windows.net/"
+		},
+		"ls_http_connector_properties_typeProperties_url": {
+			"value": "@{linkedService().baseurl}"
 		},
 		"containerUri": {
 			"value": ""
