@@ -1,5 +1,5 @@
 {
-	"name": "PL_Master_Pipeline",
+	"name": "PL_Master_Ingestion",
 	"properties": {
 		"activities": [
 			{
