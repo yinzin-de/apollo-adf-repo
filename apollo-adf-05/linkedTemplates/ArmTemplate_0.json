@@ -1339,7 +1339,7 @@
 											},
 											"rows_written": {
 												"value": {
-													"value": "@activity('Blob to Datalake').output.rowsWritten",
+													"value": "@activity('Blob to Datalake').output.rowsCopied",
 													"type": "Expression"
 												},
 												"type": "Int64"
@@ -1492,6 +1492,64 @@
 				"[concat(variables('factoryId'), '/linkedServices/ls_AzureSqlDatabase')]",
 				"[concat(variables('factoryId'), '/datasets/ds_blobsourcefiles_csv')]",
 				"[concat(variables('factoryId'), '/datasets/ds_datalakeblobfiles_parquet')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_Master_Pipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Database Ingestion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_Database_Ingestion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Blob Ingestion",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Database Ingestion",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_BlobFiles_Ingestion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_Database_Ingestion')]",
+				"[concat(variables('factoryId'), '/pipelines/PL_BlobFiles_Ingestion')]"
 			]
 		}
 	]
