@@ -1262,6 +1262,30 @@
 							"waitOnCompletion": true,
 							"parameters": {}
 						}
+					},
+					{
+						"name": "HTTP Ingestion",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Blob Ingestion",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_HTTP_Ingestion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					}
 				],
 				"policy": {
@@ -1271,7 +1295,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/PL_Database_Ingestion')]",
-				"[concat(variables('factoryId'), '/pipelines/PL_BlobFiles_Ingestion')]"
+				"[concat(variables('factoryId'), '/pipelines/PL_BlobFiles_Ingestion')]",
+				"[concat(variables('factoryId'), '/pipelines/PL_HTTP_Ingestion')]"
 			]
 		},
 		{
