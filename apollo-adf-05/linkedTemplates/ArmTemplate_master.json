@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_datalake'"
 		},
+		"ls_blobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blobStorage'"
+		},
 		"ls_AzureSqlDatabase_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "apolloservers.database.windows.net"
@@ -63,6 +67,9 @@
 					},
 					"ls_datalake_accountKey": {
 						"value": "[parameters('ls_datalake_accountKey')]"
+					},
+					"ls_blobStorage_connectionString": {
+						"value": "[parameters('ls_blobStorage_connectionString')]"
 					},
 					"ls_AzureSqlDatabase_properties_typeProperties_server": {
 						"value": "[parameters('ls_AzureSqlDatabase_properties_typeProperties_server')]"

@@ -11,6 +11,9 @@
 		"ls_datalake_accountKey": {
 			"value": ""
 		},
+		"ls_blobStorage_connectionString": {
+			"value": ""
+		},
 		"ls_AzureSqlDatabase_properties_typeProperties_server": {
 			"value": "apolloservers.database.windows.net"
 		},
