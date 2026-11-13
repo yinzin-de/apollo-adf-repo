@@ -242,7 +242,7 @@
 									},
 									"rows_written": {
 										"value": {
-											"value": "@activity('Blob to Datalake').output.rowsWritten",
+											"value": "@activity('Blob to Datalake').output.rowsCopied",
 											"type": "Expression"
 										},
 										"type": "Int64"
